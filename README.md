@@ -57,4 +57,4 @@ Description of task 0 ..
 description of task 1 ..
 
 ### Task 02 
-description of task 02 ..
+description of task 02 ...
