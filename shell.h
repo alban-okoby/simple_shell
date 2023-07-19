@@ -11,5 +11,6 @@
 #define DELIM " \n\t\r\a"
 
 char *realine(void);
+char **parse(char *line);
 
 #endif
