@@ -1,8 +1,15 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-/*All headers*/
-/* For task 0 */
-void greet(void);
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+#define DELIM " \n\t\r\a"
+
+char *realine(void);
 
 #endif
