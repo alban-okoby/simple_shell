@@ -12,5 +12,6 @@
 
 char *realine(void);
 char **parse(char *line);
+int cmdexe(char **txt);
 
 #endif
