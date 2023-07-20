@@ -19,7 +19,7 @@ int cmdexe(char **parsedtxt)
 	if (pid == 0)
 	{
 		if (execvp(parsedtxt[0], parsedtxt) == -1)
-			fprintf(stderr, "/s: command not found\n", parsedtxt[0]);
+			fprintf(stderr, "%s: command not found\n", parsedtxt[0]);
 		exit(EXIT_FAILURE);
 	}
 	else
