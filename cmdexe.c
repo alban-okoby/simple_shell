@@ -6,7 +6,7 @@
  *
  * Return: 1 on success
  */
-int cmdexe(char **txt)
+int cmdexe(char **parsedtxt)
 {
 	pid_t pid;
 

@@ -12,7 +12,7 @@
 
 extern char **environ;
 
-char *realine(void);
+char *readline(void);
 char **parse(char *line);
 int cmdexe(char **txt);
 

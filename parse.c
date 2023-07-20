@@ -28,7 +28,7 @@ char **parse(char *line)
 
 		if (position >= bufsize)
 		{
-			busize += 64;
+			bufsize += 64;
 			tokens = realloc(tokens, bufsize * sizeof(char *));
 			if (tokens == NULL)
 			{
