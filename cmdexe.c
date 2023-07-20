@@ -9,7 +9,6 @@
 int cmdexe(char **txt)
 {
 	pid_t pid;
-	/*extern char **environ;*/
 
 	pid = fork();
 	if (pid < 0)
@@ -19,7 +18,7 @@ int cmdexe(char **txt)
 	}
 	if (pid == 0)
 	{
-		if (execve(parsedtxt[0], parsedtxt) == -1)
+		if (execvp(parsedtxt[0], parsedtxt) == -1)
 			fprintf(stderr, "/s: command not found\n", parsedtxt[0]);
 		exit(EXIT_FAILURE);
 	}
