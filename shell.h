@@ -10,6 +10,8 @@
 
 #define DELIM " \n\t\r\a"
 
+extern char **environ;
+
 char *realine(void);
 char **parse(char *line);
 int cmdexe(char **txt);
