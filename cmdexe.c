@@ -2,7 +2,7 @@
 
 /**
  * cmdexe - this function excecute th parsed input
- * @txt: the parsed user's input
+ * @parsedtxt: the parsed user's input
  *
  * Return: 1 on success
  */
