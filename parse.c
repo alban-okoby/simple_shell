@@ -9,10 +9,9 @@
  */
 char **parse(char *line)
 {
-	/*64 is choosed arbitrary*/
-	int bufsize = 64;
+	int size = BUFSIZE;
 	int position = 0;
-	char **tokens = malloc(sizeof(char *) * bufsize);
+	char **tokens = malloc(sizeof(char *) * size);
 	char *token;
 
 	if (tokens == NULL)
@@ -26,10 +25,10 @@ char **parse(char *line)
 		tokens[position] = token;
 		position++;
 
-		if (position >= bufsize)
+		if (position >= size)
 		{
-			bufsize += 64;
-			tokens = realloc(tokens, bufsize * sizeof(char *));
+			size += 1024;
+			tokens = realloc(tokens, size * sizeof(char *));
 			if (tokens == NULL)
 			{
 				fprintf(stderr, "Error: realloc");

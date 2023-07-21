@@ -15,7 +15,7 @@ int main(int argc, char *argv[], char *envp)
 	int stat;
 
 	do {
-		printf("#cisfin$ ");
+		printf("$ ");
 		usrinput = readline();
 		parsedtxt = parse(usrinput);
 		stat = cmdexe(parsedtxt);
