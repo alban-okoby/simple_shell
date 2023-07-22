@@ -35,7 +35,7 @@ char **parse(char *line)
 				exit(EXIT_FAILURE);
 			}
 		}
-	} while (token = strtok(NULL, DELIM));
+	} while ((token = strtok(NULL, DELIM)));
 	tokens[position] = NULL;
 
 	return (tokens);

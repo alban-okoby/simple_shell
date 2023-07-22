@@ -2,13 +2,10 @@
 
 /**
  * main - main function for the shell
- * @argc: the number of arguments
- * @argv: The list of arguments
- * @envp: the environment
  *
  * Return: 0 on success
  */
-int main(int argc, char *argv[], char *envp)
+int main(void)
 {
 	char *usrinput;
 	char **parsedtxt;

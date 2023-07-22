@@ -45,6 +45,6 @@ int checkInPath(char *txt)
 			dir = strtok(NULL, ":");
 		}
 		free(path_copy);
-		return (0);
 	}
+	return (0);
 }
