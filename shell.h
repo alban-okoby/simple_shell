@@ -9,11 +9,13 @@
 #include <sys/wait.h>
 
 #define DELIM " \n\t\r\a"
+#define BUFSIZE 1024
 
 extern char **environ;
 
 char *readline(void);
 char **parse(char *line);
+int checkInPath(char *txt);
 int cmdexe(char **txt);
 
 /* BUILTINS */

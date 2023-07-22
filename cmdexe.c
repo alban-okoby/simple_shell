@@ -10,22 +10,30 @@ int cmdexe(char **parsedtxt)
 {
 	pid_t pid;
 
-	pid = fork();
-	if (pid < 0)
+	if (checkInPath(parsedtxt[0]))
 	{
-		perror("Error: fork");
-		exit(EXIT_FAILURE);
-	}
-	if (pid == 0)
-	{
-		if (execvp(parsedtxt[0], parsedtxt) == -1)
-			fprintf(stderr, "%s: command not found\n", parsedtxt[0]);
-		exit(EXIT_FAILURE);
+		pid = fork();
+		if (pid < 0)
+		{
+			perror("Error: fork");
+			exit(EXIT_FAILURE);
+		}
+		if (pid == 0)
+		{
+			if (execvp(parsedtxt[0], parsedtxt) == -1)
+				fprintf(stderr, "%s: command not found\n", parsedtxt[0]);
+			exit(EXIT_FAILURE);
+		}
+		else
+		{
+			wait(NULL);
+		}
+
+		return (1);
 	}
 	else
 	{
-		wait(NULL);
+		fprintf(stderr, "%s: commnd not found\n", parsedtxt[0]);
+		return (1);
 	}
-
-	return (1);
 }
