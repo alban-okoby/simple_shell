@@ -18,11 +18,11 @@ char **parse(char *line);
 int checkInPath(char *txt);
 int cmdexe(char **txt);
 
-/* BUILTINS 
+/* BUILTINS*/
 int to_unset_alias(info_s *info, char *str);
 int to_set_alias(info_s *info, char *str);
 int to_print_alias(list_s *node);
 int to_handle_alias(info_s *info);
 int to_change_alias(info_s *info);
-*/
+
 #endif
