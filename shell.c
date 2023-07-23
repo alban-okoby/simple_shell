@@ -13,7 +13,8 @@ int main(void)
 
 	do {
 		printf("$ ");
-		usrinput = readline();
+		/* usrinput = readline(); */
+		usrinput = my_getline();
 		parsedtxt = parse(usrinput);
 		stat = cmdexe(parsedtxt);
 	} while (stat);
