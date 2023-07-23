@@ -20,5 +20,5 @@ int cmdexe(char **txt);
 
 /* BUILTINS*/
 char *my_getline(void);
-
+int get_cmd_env(void);
 #endif
