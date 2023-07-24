@@ -12,7 +12,8 @@ int main(void)
 	int stat;
 
 	do {
-		printf("$ ");
+		if (isatty(STDIN_FILENO))
+			printf("$ ");
 		usrinput = readline();
 		parsedtxt = parse(usrinput);
 		stat = cmdexe(parsedtxt);
