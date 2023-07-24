@@ -9,8 +9,9 @@
 int cmdexe(char **parsedtxt)
 {
 	pid_t pid;
+	PathInfo pathinfo = checkInPath(parsedtxt[0]);
 
-	if (checkInPath(parsedtxt[0]))
+	if (pathinfo.exists)
 	{
 		pid = fork();
 		if (pid < 0)
@@ -20,7 +21,7 @@ int cmdexe(char **parsedtxt)
 		}
 		if (pid == 0)
 		{
-			if (execvp(parsedtxt[0], parsedtxt) == -1)
+			if (execve(pathinfo.fullpath, parsedtxt, environ) == -1)
 				fprintf(stderr, "%s: command not found\n", parsedtxt[0]);
 			exit(EXIT_FAILURE);
 		}

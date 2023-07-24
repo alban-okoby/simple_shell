@@ -11,11 +11,16 @@
 #define DELIM " \n\t\r\a"
 #define BUFSIZE 1024
 
+typedef struct {
+	int exists;
+	char fullpath[BUFSIZE];
+} PathInfo;
+
 extern char **environ;
 
 char *readline(void);
 char **parse(char *line);
-int checkInPath(char *txt);
+PathInfo checkInPath(char *txt);
 int cmdexe(char **txt);
 int shellBuildIn(char **parsedtxt);
 char *_getline(void);
