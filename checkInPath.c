@@ -1,6 +1,11 @@
 #include "shell.h"
 
-/**/
+/**
+ * absolutepath - check for absolute pathname
+ * @txt: user input
+ *
+ * Return: info about path
+ */
 PathInfo absolutepath(char *txt)
 {
 	PathInfo info = {0, ""};
@@ -13,7 +18,12 @@ PathInfo absolutepath(char *txt)
 	return (info);
 }
 
-/**/
+/**
+ * relativepath - check for reltive pathname
+ * @txt: the user command
+ *
+ * Return: info about path
+ */
 PathInfo relativepath(char *txt)
 {
 	PathInfo info = {0, ""};
@@ -25,7 +35,6 @@ PathInfo relativepath(char *txt)
 		perror("Eroor: getcwd");
 		return (info);
 	}
-	
 	snprintf(fullpath, sizeof(fullpath), "%s/%s", cwd, txt);
 	free(cwd);
 
@@ -37,7 +46,13 @@ PathInfo relativepath(char *txt)
 	return (info);
 }
 
-/**/
+/**
+ * searchInPath - Handle other case
+ * @target: user input
+ * @env_path: the path
+ *
+ * Return: info about path
+ */
 PathInfo searchInPath(char *target, char *env_path)
 {
 	PathInfo result = {0, ""};
@@ -60,7 +75,7 @@ PathInfo searchInPath(char *target, char *env_path)
 		}
 		free(path_copy);
 	}
-	 return (result);
+	return (result);
 }
 /**
  * checkInPath - Check is user command is in the PATH

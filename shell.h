@@ -11,7 +11,8 @@
 #define DELIM " \n\t\r\a"
 #define BUFSIZE 1024
 
-typedef struct {
+typedef struct
+{
 	int exists;
 	char fullpath[BUFSIZE];
 } PathInfo;

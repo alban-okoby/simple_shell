@@ -1,13 +1,10 @@
 #include "shell.h"
-#include <unistd.h>
-
-#define READLINE_BUFSIZE 1024
 
 /**
  * _getline - This function s to
  * get userinput
  * Descrition : This function ..
- * Return nothing;
+ * Return: a string;
  */
 char *_getline(void)
 {
