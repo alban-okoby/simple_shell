@@ -78,7 +78,7 @@ int shellBuildIn(char **parsedtxt)
 		i = change_dir(parsedtxt[1]);
 	else
 	{
-		fprintf(stderr, "%s: commnd not found\n", parsedtxt[0]);
+		fprintf(stderr, "%s: command not found\n", parsedtxt[0]);
 		i = 1;
 	}
 
