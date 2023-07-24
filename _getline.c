@@ -4,12 +4,12 @@
 #define READLINE_BUFSIZE 1024
 
 /**
- * *my_getline - This function s to
+ * _getline - This function s to
  * get userinput
  * Descrition : This function ..
  * Return nothing;
  */
-char *my_getline(void)
+char *_getline(void)
 {
 	int c;
 	static char buffer[READLINE_BUFSIZE];

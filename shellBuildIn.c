@@ -1,6 +1,11 @@
 #include "shell.h"
 
-/**/
+/**
+ * exit_shell - Exit shell with code
+ * @code: the code
+ *
+ * Return: the code
+ */
 int exit_shell(char *code)
 {
 	int exit_code;
@@ -14,7 +19,11 @@ int exit_shell(char *code)
 		return (0);
 }
 
-/**/
+/**
+ * print_env - Print the environment
+ *
+ * Return: 1
+ */
 int print_env(void)
 {
 	char **env = environ;
@@ -27,7 +36,12 @@ int print_env(void)
 	return (1);
 }
 
-/**/
+/**
+ * change_dir - Change directory
+ * @dir:  the directory to change to
+ *
+ * Return: 1
+ */
 int change_dir(char *dir)
 {
 	char *homedir;
