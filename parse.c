@@ -27,7 +27,7 @@ char **parse(char *line)
 
 		if (position >= size)
 		{
-			size += 1024;
+			size += BUFSIZE;
 			tokens = realloc(tokens, size * sizeof(char *));
 			if (tokens == NULL)
 			{

@@ -16,10 +16,10 @@ int main(void)
 		usrinput = readline();
 		parsedtxt = parse(usrinput);
 		stat = cmdexe(parsedtxt);
-	} while (stat);
 
-	free(usrinput);
-	free(parsedtxt);
+		free(usrinput);
+		free(parsedtxt);
+	} while (stat);
 
 	return (0);
 }

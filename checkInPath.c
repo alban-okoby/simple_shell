@@ -13,7 +13,8 @@ int checkInPath(char *txt)
 	char fullpath[BUFSIZE];
 	char *cwd = getcwd(NULL, 0);
 
-	/*check if it is a absolute pathname*/
+	if (txt == NULL || txt[0] == '\0')
+		return (0);
 	if (txt[0] == '/')
 	{
 		if (access(txt, F_OK) == 0)

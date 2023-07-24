@@ -1,12 +1,15 @@
 #include "shell.h"
 
 /**/
-int exit_shell(char *command)
+int exit_shell(char *code)
 {
-	int exit_code = atoi(command);
+	int exit_code;
 
-	if (command != NULL)
-		return (exit_code);
+	if (code != NULL)
+	{
+		exit_code = atoi(code);
+		exit(exit_code);
+	}
 	else
 		return (0);
 }
