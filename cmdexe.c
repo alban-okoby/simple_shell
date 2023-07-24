@@ -33,7 +33,6 @@ int cmdexe(char **parsedtxt)
 	}
 	else
 	{
-		fprintf(stderr, "%s: commnd not found\n", parsedtxt[0]);
-		return (1);
+		return (shellBuildIn(parsedtxt));
 	}
 }
