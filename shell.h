@@ -17,8 +17,7 @@ char *readline(void);
 char **parse(char *line);
 int checkInPath(char *txt);
 int cmdexe(char **txt);
+int shellBuildIn(char **parsedtxt);
+char *_getline(void);
 
-/* BUILTINS*/
-char *my_getline(void);
-int get_cmd_env(void);
 #endif
