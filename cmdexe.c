@@ -22,7 +22,7 @@ int cmdexe(char **parsedtxt)
 		}
 		if (pid == 0)
 		{
-			for(i = 0; parsedtxt[i] != NULL; i++)
+			for (i = 0; parsedtxt[i] != NULL; i++)
 			{
 				parsedtxt[i] = replaceVar(parsedtxt[i], status);
 			}

@@ -1,7 +1,11 @@
 #include "shell.h"
 
 /**
+ * replaceVar - Replace environment var
+ * @arg: the argument following echo
+ * @status: previous code exit code
  *
+ * Return: the argument remplaced
  */
 char *replaceVar(char *arg, int status)
 {
