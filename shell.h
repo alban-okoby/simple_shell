@@ -24,6 +24,7 @@ char **parse(char *line);
 PathInfo checkInPath(char *txt);
 int cmdexe(char **txt);
 int shellBuildIn(char **parsedtxt);
+char *replaceVar(char *arg, int status);
 char *_getline(void);
 
 #endif

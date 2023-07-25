@@ -10,6 +10,7 @@ int cmdexe(char **parsedtxt)
 {
 	pid_t pid;
 	PathInfo pathinfo = checkInPath(parsedtxt[0]);
+	int i, status;
 
 	if (pathinfo.exists)
 	{
@@ -21,13 +22,17 @@ int cmdexe(char **parsedtxt)
 		}
 		if (pid == 0)
 		{
+			for(i = 0; parsedtxt[i] != NULL; i++)
+			{
+				parsedtxt[i] = replaceVar(parsedtxt[i], status);
+			}
 			if (execve(pathinfo.fullpath, parsedtxt, environ) == -1)
 				fprintf(stderr, "%s: command not found\n", parsedtxt[0]);
 			exit(EXIT_FAILURE);
 		}
 		else
 		{
-			wait(NULL);
+			wait(&status);
 		}
 
 		return (1);

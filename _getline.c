@@ -1,5 +1,5 @@
 #include "shell.h"
-
+#define READLINE_BUFSIZE 1024
 /**
  * _getline - This function s to
  * get userinput
