@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <stdbool.h>
 
 #define DELIM " \n\t\r\a"
 #define BUFSIZE 1024
@@ -26,5 +27,6 @@ int cmdexe(char **txt);
 int shellBuildIn(char **parsedtxt);
 char *replaceVar(char *arg, int status);
 char *_getline(void);
+void checkComment(char **command);
 
 #endif

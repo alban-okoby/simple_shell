@@ -9,9 +9,11 @@
 int cmdexe(char **parsedtxt)
 {
 	pid_t pid;
-	PathInfo pathinfo = checkInPath(parsedtxt[0]);
+	PathInfo pathinfo;
 	int i, status;
 
+	checkComment(parsedtxt);
+	pathinfo = checkInPath(parsedtxt[0]);
 	if (pathinfo.exists)
 	{
 		pid = fork();
