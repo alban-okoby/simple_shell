@@ -13,7 +13,10 @@ char *readline(void)
 	if (getline(&line, &bufsize, stdin) == -1)
 	{
 		if (feof(stdin))
+		{
+			free(line);
 			exit(EXIT_SUCCESS);
+		}
 		else
 		{
 			perror("Error: readline");
