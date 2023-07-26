@@ -42,6 +42,7 @@ char *replaceVar(char *arg, int status);
 char *_getline(void);
 void checkComment(char **command);
 void print_err(char *cmd, char *txt);
+char *handleVar(char *command, int status);
 
 /* Custum functions*/
 char *_strncpy(char *dest, char *src, size_t n);
