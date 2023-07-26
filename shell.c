@@ -13,7 +13,7 @@ int main(void)
 
 	do {
 		if (isatty(STDIN_FILENO))
-			printf("$ ");
+			write(1, "$ ", 2);
 		usrinput = readline();
 		parsedtxt = parse(usrinput);
 		stat = cmdexe(parsedtxt);

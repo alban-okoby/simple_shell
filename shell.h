@@ -28,5 +28,6 @@ int shellBuildIn(char **parsedtxt);
 char *replaceVar(char *arg, int status);
 char *_getline(void);
 void checkComment(char **command);
+void print_err(char *cmd, char *txt);
 
 #endif

@@ -29,7 +29,7 @@ int cmdexe(char **parsedtxt)
 				parsedtxt[i] = replaceVar(parsedtxt[i], status);
 			}
 			if (execve(pathinfo.fullpath, parsedtxt, environ) == -1)
-				fprintf(stderr, "%s: command not found\n", parsedtxt[0]);
+				print_err(parsedtxt[0], " :command not found\n");
 			exit(EXIT_FAILURE);
 		}
 		else

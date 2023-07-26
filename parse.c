@@ -16,7 +16,7 @@ char **parse(char *line)
 
 	if (tokens == NULL)
 	{
-		fprintf(stderr, "Error: malloc");
+		print_err(NULL, "Error: malloc");
 		exit(EXIT_FAILURE);
 	}
 
@@ -31,7 +31,7 @@ char **parse(char *line)
 			tokens = realloc(tokens, size * sizeof(char *));
 			if (tokens == NULL)
 			{
-				fprintf(stderr, "Error: realloc");
+				print_err(NULL, "Error: realloc");
 				exit(EXIT_FAILURE);
 			}
 		}

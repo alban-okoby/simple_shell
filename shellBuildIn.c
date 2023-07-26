@@ -56,13 +56,13 @@ int change_dir(char *dir)
 				perror("sh");
 		}
 		else
-			fprintf(stderr, "sh: HOME environment variable not set\n");
+		print_err(NULL, "sh: HOME environment variable not set\n");
 	}
 	else if (strcmp(dir, "-") == 0)
 	{
 		previousdir = getenv("OLDPWD");
 		if (previousdir == NULL)
-			fprintf(stderr, "sh: OLDPWD environment variable not set.\n");
+			print_err(NULL, "sh: OLDPWD environment variable not set.\n");
 		else
 		{
 			if (chdir(previousdir) != 0)
@@ -95,7 +95,7 @@ int shellBuildIn(char **parsedtxt)
 		i = change_dir(parsedtxt[1]);
 	else
 	{
-		fprintf(stderr, "%s: command not found\n", parsedtxt[0]);
+		print_err(parsedtxt[0], " :command not found\n");
 		i = 1;
 	}
 
