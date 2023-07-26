@@ -10,12 +10,12 @@ int cmdexe(char **parsedtxt)
 {
 	pid_t pid;
 	PathInfo pathinfo;
-	int i, status = 0;
-	char *updatedCommand = handleVar(parsedtxt[0], status);
+	int i, status;
+	/* char *updatedCommand = handleVar(parsedtxt[0], status); */
 
-	parsedtxt[0] = updatedCommand;
 	checkComment(parsedtxt);
 	pathinfo = checkInPath(parsedtxt[0]);
+	/* parsedtxt[0] = updatedCommand; */
 
 	if (pathinfo.exists)
 	{
