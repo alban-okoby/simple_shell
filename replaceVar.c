@@ -10,27 +10,32 @@
 char *replaceVar(char *arg, int status)
 {
 	char *result = (char *)malloc(BUFSIZE);
-	 char *env_var = getenv(arg + 1);
+	char *env_var = _getenv(arg + 1);
+	char *str;
 
 	if (arg[0] == '$')
 	{
-		if (strcmp(arg, "$?") == 0)
+		if (_strcmp(arg, "$?") == 0)
 		{
-			snprintf(result, BUFSIZE, "%d", WEXITSTATUS(status));
+			str = intToString(WEXITSTATUS(status));
+			_strncpy(result, str, BUFSIZE);
+			/*snprintf(result, BUFSIZE, "%d", WEXITSTATUS(status));*/
 			return (result);
 		}
-		else if (strcmp(arg, "$$") == 0)
+		else if (_strcmp(arg, "$$") == 0)
 		{
-			snprintf(result, BUFSIZE, "%d", getpid());
+			str = intToString(getpid());
+			_strncpy(result, str, BUFSIZE);
+			/*snprintf(result, BUFSIZE, "%d", getpid());*/
 			return (result);
 		}
 		else
 		{
 			if (env_var != NULL)
-				return (strdup(env_var));
-			return (strdup(""));
+				return (_strdup(env_var));
+			return (_strdup(""));
 		}
 	}
 	else
-		return (strdup(arg));
+		return (_strdup(arg));
 }

@@ -87,11 +87,11 @@ int shellBuildIn(char **parsedtxt)
 {
 	int i = 0;
 
-	if (strcmp(parsedtxt[0], "exit") == 0)
+	if (_strcmp(parsedtxt[0], "exit") == 0)
 		i = exit_shell(parsedtxt[1]);
-	else if (strcmp(parsedtxt[0], "env") == 0)
+	else if (_strcmp(parsedtxt[0], "env") == 0)
 		i = print_env();
-	else if (strcmp(parsedtxt[0], "cd") == 0)
+	else if (_strcmp(parsedtxt[0], "cd") == 0)
 		i = change_dir(parsedtxt[1]);
 	else
 	{

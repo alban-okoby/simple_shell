@@ -13,7 +13,7 @@ PathInfo absolutepath(char *txt)
 	if (access(txt, F_OK) == 0)
 	{
 		info.exists = 1;
-		strncpy(info.fullpath, txt, BUFSIZE);
+		_strncpy(info.fullpath, txt, BUFSIZE);
 	}
 	return (info);
 }
@@ -29,19 +29,21 @@ PathInfo relativepath(char *txt)
 	PathInfo info = {0, ""};
 	char *cwd = getcwd(NULL, 0);
 	char fullpath[BUFSIZE];
+	char *str = custom_concat(cwd, txt, '/');
 
 	if (cwd == NULL)
 	{
 		perror("Eroor: getcwd");
 		return (info);
 	}
-	snprintf(fullpath, sizeof(fullpath), "%s/%s", cwd, txt);
+	_strncpy(fullpath, str, BUFSIZE);
 	free(cwd);
+	free(str);
 
 	if (access(fullpath, F_OK) == 0)
 	{
 		info.exists = 1;
-		strncpy(info.fullpath, fullpath, BUFSIZE);
+		_strncpy(info.fullpath, fullpath, BUFSIZE);
 	}
 	return (info);
 }
@@ -56,19 +58,22 @@ PathInfo relativepath(char *txt)
 PathInfo searchInPath(char *target, char *env_path)
 {
 	PathInfo result = {0, ""};
-	char *path_copy = strdup(env_path);
+	char *path_copy = _strdup(env_path);
 	char *dir = strtok(path_copy, ":");
 	char fullpath[BUFSIZE];
+	char *str;
 
 	if (env_path != NULL)
 	{
 		while (dir != NULL)
 		{
-			snprintf(fullpath, sizeof(fullpath), "%s/%s", dir, target);
+			str = custom_concat(dir, target, '/');
+			_strncpy(fullpath, str, BUFSIZE);
+			free(str);
 			if (access(fullpath, F_OK) == 0)
 			{
 				result.exists = 1;
-				strncpy(result.fullpath, fullpath, BUFSIZE);
+				_strncpy(result.fullpath, fullpath, BUFSIZE);
 				break;
 			}
 			dir = strtok(NULL, ":");
@@ -86,7 +91,7 @@ PathInfo searchInPath(char *target, char *env_path)
 PathInfo checkInPath(char *txt)
 {
 	PathInfo result = {0, ""};
-	char *env_path = getenv("PATH");
+	char *env_path = _getenv("PATH");
 
 	if (txt == NULL || txt[0] == '\0')
 		return (result);
