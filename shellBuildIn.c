@@ -13,8 +13,7 @@ int exit_shell(char *code)
 	if (code != NULL)
 	{
 		exit_code = atoi(code);
-		returnthis = exit_code;
-		return (0);
+		exit(exit_code);
 	}
 	else
 		return (0);
@@ -96,8 +95,9 @@ int shellBuildIn(char **parsedtxt)
 		i = change_dir(parsedtxt[1]);
 	else
 	{
-		print_err(parsedtxt[0], " :command not found\n");
-		i = 1;
+		print_err("./hsh: 1: ", NULL);
+		print_err(parsedtxt[0], " :not found\n");
+		i = 127;
 	}
 
 	return (i);

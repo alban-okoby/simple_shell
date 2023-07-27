@@ -45,7 +45,7 @@ int cmdexe(char **parsedtxt)
 	else
 	{
 		if (parsedtxt[0] == NULL || *parsedtxt[0] == '\0')
-			return (1);
+			return (127);
 		return (shellBuildIn(parsedtxt));
 	}
 }

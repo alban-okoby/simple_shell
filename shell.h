@@ -13,7 +13,6 @@
 #define DELIM " \n\t\r\a"
 #define BUFSIZE 1024
 
-int returnthis;
 /**
  * struct a - information on path
  * @exists: existence of path
