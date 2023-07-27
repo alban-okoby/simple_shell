@@ -49,7 +49,7 @@ int change_dir(char *dir)
 
 	if (dir == NULL)
 	{
-		homedir = getenv("HOME");
+		homedir = _getenv("HOME");
 		if (homedir != NULL)
 		{
 			if (chdir(homedir) != 0)
@@ -58,9 +58,9 @@ int change_dir(char *dir)
 		else
 		print_err(NULL, "sh: HOME environment variable not set\n");
 	}
-	else if (strcmp(dir, "-") == 0)
+	else if (_strcmp(dir, "-") == 0)
 	{
-		previousdir = getenv("OLDPWD");
+		previousdir = _getenv("OLDPWD");
 		if (previousdir == NULL)
 			print_err(NULL, "sh: OLDPWD environment variable not set.\n");
 		else
