@@ -22,5 +22,5 @@ int main(void)
 		free(parsedtxt);
 	} while (stat);
 
-	return (0);
+	return (returnthis);
 }

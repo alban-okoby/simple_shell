@@ -13,7 +13,8 @@ int exit_shell(char *code)
 	if (code != NULL)
 	{
 		exit_code = atoi(code);
-		exit(exit_code);
+		returnthis = exit_code;
+		return (0);
 	}
 	else
 		return (0);
